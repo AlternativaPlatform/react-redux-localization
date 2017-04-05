@@ -1,6 +1,6 @@
 {
   "name": "react-redux-localization",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Simple localization tool for React/Redux applications",
   "main": "./lib/index.js",
   "scripts": {
