@@ -12,8 +12,8 @@ npm install --save react-redux-localization
 ## Usage
 
 By default works in a way which matches my personal preferences (check API for possible customizations): 
- * Gets current locale from `state.locale`. 
- * Component prop name for translation function is `l`.
+ * Gets current locale from `state.locale`
+ * Passes translation function in wrapped Component under the name `l`
  * Translations are supposed to be `json` with the following scheme:
 
     ```
