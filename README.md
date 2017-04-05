@@ -131,7 +131,7 @@ Localizes React Component and connects it to Redux store so that when locale is 
 
 #### Arguments
 
- * `translations` *(Anything)* A function or an object or whatever you what which will be bassed to `translator` to get localized value of a given key. In case of using default `translator` object of following shape should be passed as `translations` argument:
+ * `translations` *(Anything)* A function or an object or whatever you what which will be passed to `translator` to get localized value for a given key out of it. In case of using default `translator` an object of following shape should be passed as `translations` argument:
 
     ```
     {
@@ -143,9 +143,9 @@ Localizes React Component and connects it to Redux store so that when locale is 
       ...
     }
     ```
- * `[mapStateToLocale: state => locale]` *(Function)* A function which gets Redux current locale from Redux state. If you omit it default behaviour will be used, i.e. `getLocale` selector.
- * `[propName]` *(String)* The name under which translation function will apear in wrapped Component's props. If omitted name `l` will be used.
- * `[translator: (translations, key, locale) => localizedValue]` *(Function)* If this function is specified then it will be used to get `localizedValue` for given `key` and `language` from `translations`. By passing custom function any shape, type and taste of `translations` format can be used: differently shaped JSON, Yaml, custom binary format, name it.
+ * `[mapStateToLocale: state => locale]` *(Function)* A function which gets current locale from Redux state. If you omit it, default behaviour will be used, i.e. `getLocale` selector.
+ * `[propName]` *(String)* The name under which translation function will appear in wrapped Component's props. If omitted, name `l` will be used.
+ * `[translator: (translations, key, locale) => localizedValue]` *(Function)* If this function is specified then it will be used to get `localizedValue` for given `key` and `language` from `translations`. By specifing custom `translator` any shape, type and taste of `translations` format can be used: differently shaped JSON, Yaml, custom binary format, name it.
 
 #### Returns
 

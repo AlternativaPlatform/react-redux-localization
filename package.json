@@ -29,7 +29,7 @@
   "bugs": {
     "url": "https://github.com/AlternativaPlatform/react-redux-localization/issues"
   },
-  "homepage": "https://github.com/AlternativaPlatform/react-redux-localization#readme",
+  "homepage": "https://github.com/AlternativaPlatform/react-redux-localization",
   "dependencies": {
     "react": "^15.4.2",
     "react-redux": "^5.0.3",
