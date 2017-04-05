@@ -1,0 +1,47 @@
+{
+  "name": "react-redux-localization",
+  "version": "1.0.0",
+  "description": "Simple localization tool for React/Redux applications",
+  "main": "./lib/index.js",
+  "scripts": {
+    "test": "jest",
+    "prepublish": "npm run clean && npm run build",
+    "build": "babel src --out-dir lib",
+    "clean": "rimraf lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlternativaPlatform/react-redux-localization.git"
+  },
+  "files": [
+    "lib",
+    "src"
+  ],
+  "keywords": [
+    "react",
+    "reactjs",
+    "redux",
+    "localization",
+    "i18n"
+  ],
+  "author": "Fedor Kulikov",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/AlternativaPlatform/react-redux-localization/issues"
+  },
+  "homepage": "https://github.com/AlternativaPlatform/react-redux-localization#readme",
+  "dependencies": {
+    "react": "^15.4.2",
+    "react-redux": "^5.0.3",
+    "redux": "^3.6.0",
+    "reselect": "^3.0.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.0",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-preset-es2015": "^6.24.0",
+    "cross-env": "^4.0.0",
+    "jest": "^19.0.2",
+    "rimraf": "^2.6.1"
+  }
+}
