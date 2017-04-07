@@ -1,7 +1,7 @@
 React Redux Localization
 ==============================
 
-A high-order React Component which provides translation function to wrapped Components. Gets current locale from Redux store. 
+A high-order React Component which provides translation function `(key, ...args) => localizeValue` to wrapped Components. Gets current locale from Redux store. 
 
 ## Installation
 
@@ -26,6 +26,7 @@ By default works in a way which matches my personal preferences (check API for p
        ...
     }
     ```
+Translation function uses [string-format](https://www.npmjs.com/package/string-format) to format localized values in case they happen to be `strings` (see example below).
 
 Provides `localeReducer` reducer to jack into your reducers tree, `setLocale` action and `getLocale` selector.
 
@@ -51,7 +52,7 @@ const store = createStore(rootReducer);
 const App = () => (
   <div>
     <Switcher />
-    <Greeting />
+    <Greeting name='Fedor'/>
   </div>
 );
 
@@ -71,10 +72,10 @@ import translations from './greeting-translations.json';
 
 const yo = localizeKey(translations)('untranslatable_greeting', 'en');
 
-const Greeting = ({ l }) => (
+const Greeting = ({ l, name }) => (
   <div>
     <h1>{yo}</h1>
-    <h1>{l('hello')}</h1>
+    <h1>{l('hello', name)}</h1>
   </div>
 );
 
@@ -113,9 +114,9 @@ export default connect(mapStateToProps, mapDispatchToProps)(Switcher);
 
 {
   "hello": {
-    "en": "Hello!",
-    "de": "Hallo!",
-    "ru": "Привет!"
+    "en": "Hello, {}!",
+    "de": "Hallo, {}!",
+    "ru": "Привет, {}!"
   },
   "untranslatable_greeting": {
     "en": "Yo!"
@@ -145,7 +146,7 @@ Localizes React Component and connects it to Redux store so that when locale is 
     ```
  * `[mapStateToLocale: state => locale]` *(Function)* A function which gets current locale from Redux state. If you omit it, default behaviour will be used, i.e. `getLocale` selector.
  * `[propName]` *(String)* The name under which translation function will appear in wrapped Component's props. If omitted, name `l` will be used.
- * `[translator: (translations, key, locale) => localizedValue]` *(Function)* If this function is specified then it will be used to get `localizedValue` for given `key` and `language` from `translations`. By specifing custom `translator` any shape, type and taste of `translations` format can be used: differently shaped JSON, Yaml, custom binary format, name it.
+ * `[translator: (translations, key, locale, ...extraArgs) => localizedValue]` *(Function)* If this function is specified then it will be used to get `localizedValue` for given `key` and `language` from `translations`. By specifing custom `translator` any shape, type and taste of `translations` format can be used: differently shaped JSON, Yaml, custom binary format... you name it! If ommited, deafult translator will be used and `...extraArgs` will be used as params for string formatting.
 
 #### Returns
 
@@ -159,11 +160,11 @@ Creates localization function for given set of translations.
 #### Arguments
 
  * `translations` *(Anything)* Same as `translations` in `localize`.
- * `[translator(translations, key, locale): localizedValue]` *(Function)* Same as `translator` in `localize`.
+ * `[translator: (translations, key, locale, ...extraArgs) => localizedValue]` *(Function)* Same as `translator` in `localize`.
 
 #### Returns
 
-Function `(key, locale) => localizedValue` which can be used to get `localizedValue` in given `locale`.
+Function `(key, locale, ...extraArgs) => localizedValue` which can be used to get `localizedValue` in given `locale` with `...extraArgs` formatting params.
 
 ## Your lib is buggy!
 

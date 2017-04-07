@@ -11,7 +11,7 @@ export default (
 ) => {
   const makeTranslator = createSelector(
     locale => locale,
-    locale => key => translator(translations, key, locale)
+    locale => (key, ...args) => translator(translations, key, locale, ...args)
   );
 
   const mapStateToProps = state => ({

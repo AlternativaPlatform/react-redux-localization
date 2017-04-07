@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`localize with default settings 1`] = `
+<div>
+  Hallo, Fedor!
+</div>
+`;
+
+exports[`localize with overriden settings 1`] = `
+<div>
+  Hallo, Fedor!
+</div>
+`;
