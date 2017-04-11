@@ -31,11 +31,13 @@
   },
   "homepage": "https://github.com/AlternativaPlatform/react-redux-localization",
   "dependencies": {
-    "react": "^15.4.2",
-    "react-redux": "^5.0.3",
-    "redux": "^3.6.0",
     "reselect": "^3.0.0",
     "string-format": "^0.5.0"
+  },
+  "peerDependencies": {
+    "react": "^0.14.0 || ^15.0.0-0 || ^16.0.0-0",
+    "redux": "^2.0.0 || ^3.0.0",
+    "react-redux": "^3.0.0 || ^4.0.0 || ^5.0.0"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
@@ -44,7 +46,10 @@
     "babel-preset-react": "^6.23.0",
     "cross-env": "^4.0.0",
     "jest": "^19.0.2",
+    "react": "^15.5.3",
+    "react-redux": "^5.0.4",
     "react-test-renderer": "^15.4.2",
+    "redux": "^3.6.0",
     "redux-mock-store": "^1.2.2",
     "rimraf": "^2.6.1"
   }
