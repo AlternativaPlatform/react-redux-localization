@@ -3,5 +3,9 @@
   "plugins": [
     "transform-object-rest-spread",
   ],
-  "ignore": ["*.test.js"]
+  "env": {
+    "production": {
+      "ignore": ["*.test.js"]
+    }
+  }  
 }

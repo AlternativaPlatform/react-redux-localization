@@ -8,7 +8,6 @@ const mockStore = configureStore();
 const defaultTranslations = { hello: { de: 'Hallo, {}!' } };
 const customTranslations = { de: { hello: 'Hallo, {}!' } };
 
-console.log(Provider);
 const render = (Component, storeState) => testRenderer.create(
   <Provider store={mockStore(storeState)}>
     <Component />
@@ -26,7 +25,6 @@ test('localize with default settings', () => {
 });
 
 test('localize with overriden settings', () => {
-  console.log(customTranslations);
   const rendered = render(
     localize(
       customTranslations,

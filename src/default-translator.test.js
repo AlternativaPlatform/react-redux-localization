@@ -30,6 +30,7 @@ test('formats strings', () => {
 });
 
 test('ignores formatting arguments for non-strings', () => {
+  expect(t('lucky_number', 'en')).toBe(7);
   expect(t('lucky_number', 'en', '13')).toBe(7);
 });
 
