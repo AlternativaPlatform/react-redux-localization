@@ -2,7 +2,7 @@ import format from 'string-format';
 
 export default (translations, key, locale, ...args) => {
   const value = translations[key] && translations[key][locale];
-  if (value) {
+  if (value !== undefined) {
     if (typeof value === 'string') return format(value, ...args);
     return value;
   }

@@ -11,6 +11,15 @@ const translations = {
   lucky_number: {
     en: 7,
   },
+  falsy: {
+    en: 0,
+    de: null,
+    ru: false,
+    cn: '',
+  },
+  undefined_translation: {
+    en: undefined,
+  }
 }
 
 const t = (key, locale, ...args) => translate(translations, key, locale, ...args);
@@ -30,8 +39,19 @@ test('formats strings', () => {
 });
 
 test('ignores formatting arguments for non-strings', () => {
-  expect(t('lucky_number', 'en')).toBe(7);
   expect(t('lucky_number', 'en', '13')).toBe(7);
+});
+
+test('correctly translates falsy values', () => {
+  expect(t('falsy', 'en')).toBe(0);
+  expect(t('falsy', 'de')).toBe(null);
+  expect(t('falsy', 'ru')).toBe(false);
+  expect(t('falsy', 'cn')).toBe('');
+});
+
+test('substitutes presents undefined translations', () => {
+  expect(t('undefined_translation', 'en')).toBe('undefined_translation[en]');
+  expect(t('undefined_translation', 'ru')).toBe('undefined_translation[ru]');
 });
 
 test('handles formatting of unknown translations', () => {
